@@ -24,28 +24,34 @@ public class MemoryCandidateRepository implements CandidateRepository {
         save(new Candidate(0, "Рома Никитин", "Middle+", LocalDateTime.now()));
         save(new Candidate(0, "Вова Ларин", "Senior", LocalDateTime.now()));
     }
+
     public static MemoryCandidateRepository getInstance() {
         return INSTANCE;
     }
+
     @Override
     public Candidate save(Candidate candidate) {
         candidate.setId(nextId++);
         candidates.put(candidate.getId(), candidate);
         return candidate;
     }
+
     @Override
     public void deleteById(int id) {
         candidates.remove(id);
     }
+
     @Override
     public boolean update(Candidate candidate) {
         return candidates.computeIfPresent(candidate.getId(),
                 (id, oldCandidate) -> new Candidate(oldCandidate.getId(), candidate.getName())) != null;
     }
+
     @Override
     public Optional<Candidate> findById(int id) {
         return Optional.ofNullable(candidates.get(id));
     }
+
     @Override
     public Collection<Candidate> findAll() {
         return candidates.values();
