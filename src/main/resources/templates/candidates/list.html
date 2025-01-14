@@ -25,21 +25,21 @@
             </div>
         </div>
     </nav>
-<div class="container">
+    <div class="container">
     <div class="row">
         <table class="table">
             <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Имя</th>
-                <th scope="col">Дата создания</th>
+                <th scope="col">Название </th>
+                <th scope="col">Дата cоздания</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="candidates: ${candidates}">
-                <td th:text="${candidates.id}" />
-                <td th:text="${candidates.name}" />
-                <td th:text="${candidates.creationDate}" />
+            <tr th:each="candidate: ${candidates}">
+                <td th:text="${candidate.id}" />
+                <td><a th:text="${candidate.name}" th:href="@{/candidates/{candidateId}(candidateId=${candidate.id})}"></a></td>
+                <td th:text="${candidate.creationDate}" />
             </tr>
             </tbody>
         </table>

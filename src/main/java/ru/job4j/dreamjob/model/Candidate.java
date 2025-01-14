@@ -24,6 +24,10 @@ public class Candidate {
         this.name = name;
     }
 
+    public Candidate() {
+        this.creationDate = LocalDateTime.now();
+    }
+
     public int getId() {
         return id;
     }
