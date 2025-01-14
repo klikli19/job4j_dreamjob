@@ -8,7 +8,6 @@ import ru.job4j.dreamjob.model.Candidate;
 import ru.job4j.dreamjob.service.CandidateService;
 import ru.job4j.dreamjob.service.CityService;
 
-
 @ThreadSafe
 @Controller
 @RequestMapping("/candidates")
