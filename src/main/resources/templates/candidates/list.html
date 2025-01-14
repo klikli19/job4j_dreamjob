@@ -20,6 +20,7 @@
                     <a class="nav-item nav-link active" th:href="@{/vacancies}">Вакансии</a>
                     <a class="nav-item nav-link" th:href="@{/candidates}">Кандидаты</a>
                     <a class="nav-item nav-link" th:href="@{/vacancies/create}">Создать вакансию</a>
+                    <a class="nav-item nav-link" th:href="@{/candidates/create}">Создать резюме</a>
                 </div>
             </div>
         </div>
@@ -31,15 +32,13 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Имя</th>
-                <th scope="col">Описание</th>
-                <th scope="col">Дата оздания</th>
+                <th scope="col">Дата создания</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="candidates: ${candidates}">
                 <td th:text="${candidates.id}" />
                 <td th:text="${candidates.name}" />
-                <td th:text="${candidates.description}" />
                 <td th:text="${candidates.creationDate}" />
             </tr>
             </tbody>
@@ -47,3 +46,4 @@
     </div>
 </div>
 </body>
+</html>
