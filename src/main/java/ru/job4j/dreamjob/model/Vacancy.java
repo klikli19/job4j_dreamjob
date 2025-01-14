@@ -28,6 +28,12 @@ public class Vacancy {
         this.creationDate = LocalDateTime.now();
     }
 
+    public Vacancy(int id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
     public int getId() {
         return id;
     }
