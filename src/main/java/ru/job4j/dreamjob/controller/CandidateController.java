@@ -33,7 +33,6 @@ public class CandidateController {
         return "redirect:/candidates";
     }
 
-
     @GetMapping("/{id}")
     public String getById(Model model, @PathVariable int id) {
         var candidateOptional = candidateService.findById(id);
