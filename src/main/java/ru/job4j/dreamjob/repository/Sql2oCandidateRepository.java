@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Repository
-public class Sql2oCandidateRepository implements CandidateRepository{
+public class Sql2oCandidateRepository implements CandidateRepository {
     private final Sql2o sql2o;
 
     public Sql2oCandidateRepository(Sql2o sql2o) {
@@ -75,6 +75,7 @@ public class Sql2oCandidateRepository implements CandidateRepository{
             return Optional.ofNullable(candidate);
         }
     }
+
     @Override
     public Collection<Candidate> findAll() {
         try (var connection = sql2o.open()) {
