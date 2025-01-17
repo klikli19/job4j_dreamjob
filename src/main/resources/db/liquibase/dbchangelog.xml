@@ -6,8 +6,9 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
 http://www.liquibase.org/xml/ns/dbchangelog ">
-    <include file="scripts/202401151350_ddl_create_cities_table.sql" relativeToChangelogFile="true"/>
-    <include file="scripts/202501151352_dml_insert_cities.sql" relativeToChangelogFile="true"/>
-    <include file="scripts/202501151353_ddl_create_files_table.sql" relativeToChangelogFile="true"/>
-    <include file="scripts/202501151354_ddl_create_vacancies_table.sql" relativeToChangelogFile="true"/>
+    <include file="../scripts/202401151350_ddl_create_cities_table.sql" relativeToChangelogFile="true"/>
+    <include file="../scripts/202501151352_dml_insert_cities.sql" relativeToChangelogFile="true"/>
+    <include file="../scripts/202501151353_ddl_create_files_table.sql" relativeToChangelogFile="true"/>
+    <include file="../scripts/202501151354_ddl_create_vacancies_table.sql" relativeToChangelogFile="true"/>
+    <include file="../scripts/202501171750_ddl_create_users_table.sql" relativeToChangelogFile="true"/>
 </databaseChangeLog>
