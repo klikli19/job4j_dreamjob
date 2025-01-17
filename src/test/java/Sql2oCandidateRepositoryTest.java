@@ -38,8 +38,6 @@ class Sql2oCandidateRepositoryTest {
         var sql2o = configuration.databaseClient(datasource);
         sql2oCandidateRepository = new Sql2oCandidateRepository(sql2o);
         sql2oFileRepository = new Sql2oFileRepository(sql2o);
-
-        // нужно сохранить хотя бы один файл, т.к. candidate от него зависит
         file = new File("test", "test");
         sql2oFileRepository.save(file);
     }
