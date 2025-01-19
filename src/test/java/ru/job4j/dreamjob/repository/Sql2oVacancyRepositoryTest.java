@@ -38,7 +38,6 @@ public class Sql2oVacancyRepositoryTest {
         var configuration = new DatasourceConfiguration();
         var datasource = configuration.connectionPool(url, username, password);
         var sql2o = configuration.databaseClient(datasource);
-
         sql2oVacancyRepository = new Sql2oVacancyRepository(sql2o);
         sql2oFileRepository = new Sql2oFileRepository(sql2o);
         file = new File("test", "test");
