@@ -1,9 +1,10 @@
+package ru.job4j.dreamjob.repository;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.job4j.dreamjob.configuration.DatasourceConfiguration;
 import ru.job4j.dreamjob.model.User;
-import ru.job4j.dreamjob.repository.Sql2oUserRepository;
 
 import java.util.Properties;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -37,8 +38,7 @@ public class Sql2oUserRepositoryTest {
     public void whenSaveThenSaved() {
         User user = new User(0, "Ivan", "email@mail.ru", "1234");
         sql2oUserRepository.save(user);
-        assertThat(user).usingRecursiveComparison().isEqualTo(sql2oUserRepository.findByEmailAndPassword(user.getEmail(),
-                user.getPassword()).get());
+        assertThat(user).usingRecursiveComparison().isEqualTo(sql2oUserRepository.findByEmailAndPassword(user.getEmail(), user.getPassword()).get());
     }
 
     @Test
