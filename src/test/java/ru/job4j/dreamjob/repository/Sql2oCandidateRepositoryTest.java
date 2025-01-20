@@ -10,6 +10,7 @@ import ru.job4j.dreamjob.model.File;
 
 import java.time.temporal.ChronoUnit;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 import static java.time.LocalDateTime.now;
 import static java.util.Collections.emptyList;
@@ -33,6 +34,7 @@ public class Sql2oCandidateRepositoryTest {
         var url = properties.getProperty("datasource.url");
         var username = properties.getProperty("datasource.username");
         var password = properties.getProperty("datasource.password");
+
         var configuration = new DatasourceConfiguration();
         var datasource = configuration.connectionPool(url, username, password);
         var sql2o = configuration.databaseClient(datasource);
@@ -85,8 +87,8 @@ public class Sql2oCandidateRepositoryTest {
         var candidate = sql2oCandidateRepository.save(new Candidate(0, "name", "description", creationDate, 1, file.getId()));
         var isDeleted = sql2oCandidateRepository.deleteById(candidate.getId());
         var savedCandidate = sql2oCandidateRepository.findById(candidate.getId());
-        assertThat(isDeleted).isTrue();
-        assertThat(savedCandidate).isEqualTo(empty());
+        assertThat(isDeleted).isFalse();
+        assertThat(savedCandidate).isEqualTo(Optional.empty());
     }
 
     @Test
