@@ -30,8 +30,8 @@ public class Sql2oUserRepository implements UserRepository {
             return Optional.ofNullable(user);
         } catch (Sql2oException e) {
             e.printStackTrace();
-            return Optional.empty();
         }
+        return Optional.empty();
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Sql2oUserRepository implements UserRepository {
             query.addParameter("email", email);
             query.addParameter("password", password);
             var user = query.setColumnMappings(User.COLUMN_MAPPING).executeAndFetchFirst(User.class);
-            return Optional.ofNullable(user);
+            return Optional.of(user);
         }
     }
 
