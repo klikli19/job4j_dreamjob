@@ -16,15 +16,19 @@
             <a class="navbar-brand" href="/">Job4jDreamJob</a>
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav me-auto">
-                    <a class="nav-item nav-link" href="/">Главная</a>
-                    <a class="nav-item nav-link active" th:href="@{/vacancies}">Вакансии</a>
+                    <a class="nav-item nav-link active" href="/">Главная</a>
+                    <a class="nav-item nav-link" th:href="@{/vacancies}">Вакансии</a>
                     <a class="nav-item nav-link" th:href="@{/candidates}">Кандидаты</a>
                     <a class="nav-item nav-link" th:href="@{/vacancies/create}">Создать вакансию</a>
                     <a class="nav-item nav-link" th:href="@{/candidates/create}">Создать резюме</a>
                 </div>
-                <div class="d-flex">
-                    <a class="nav-link me-3 text-secondary" th:href="@{/users/register}">Регистрация</a>
-                    <a class="nav-link text-secondary" th:href="@{/users/login}">Войти</a>
+                <div class="d-flex" th:if="${user.name == 'Гость'}">
+                    <a class="nav-link text-secondary me-3" th:href="@{/user/register}">Регистрация</a>
+                    <a class="nav-link text-secondary" th:href="@{/user/login}">Войти</a>
+                </div>
+                <div class="d-flex" th:if="${user.name != 'Гость'}">
+                    <a class="nav-link text-secondary me-3" href="#" th:text="${user.name}"></a>
+                    <a class="nav-link text-secondary" th:href="@{/user/logout}">Выйти</a>
                 </div>
             </div>
         </div>
