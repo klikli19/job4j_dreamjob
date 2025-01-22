@@ -49,8 +49,8 @@ class CandidateControllerTest {
     @Test
     public void whenRequestCandidateListPageThenGetPageWithCandidates() {
 
-        Candidate candidate1 = new Candidate(1, "Алеша", "джун", LocalDateTime.now(), 1,1);
-        Candidate candidate2 = new Candidate(2, "Алеша1", "джун", LocalDateTime.now(), 2,2);
+        Candidate candidate1 = new Candidate(1, "jjj", "kkk", LocalDateTime.now(), 1, 1);
+        Candidate candidate2 = new Candidate(2, "jjj1", "kkk1", LocalDateTime.now(), 2, 2);
         List<Candidate> expectedCandidates = List.of(candidate1, candidate2);
 
         when(candidateService.findAll()).thenReturn(expectedCandidates);
@@ -83,7 +83,7 @@ class CandidateControllerTest {
     @Test
     public void whenPostCandidateWithFileThenSameDataAndRedirectToCandidatesPage() throws Exception {
 
-        Candidate candidate = new Candidate(1, "Алеша", "джун", LocalDateTime.now(), 1,1);
+        Candidate candidate = new Candidate(1, "kkk", "kkkk", LocalDateTime.now(), 1, 1);
         FileDto fileDto = new FileDto(testFile.getOriginalFilename(), testFile.getBytes());
 
         ArgumentCaptor<Candidate> candidateArgumentCaptor = ArgumentCaptor.forClass(Candidate.class);
@@ -120,7 +120,7 @@ class CandidateControllerTest {
     @Test
     public void whenRequestSingleCandidateByIdThenGetPageWithCandidate() {
 
-        Candidate candidate = new Candidate(1, "Алеша", "джун", LocalDateTime.now(), 1,1);
+        Candidate candidate = new Candidate(1, "kkk", "kkkk", LocalDateTime.now(), 1, 1);
 
         when(candidateService.findById(candidate.getId())).thenReturn(Optional.of(candidate));
 
@@ -151,7 +151,7 @@ class CandidateControllerTest {
     @Test
     public void whenUpdateCandidateSuccessThenRedirectToCandidatesPage() throws Exception {
 
-        Candidate candidate = new Candidate(1, "Алеша", "джун", LocalDateTime.now(), 1,1);
+        Candidate candidate = new Candidate(1, "kkk", "kkkk", LocalDateTime.now(), 1, 1);
         FileDto fileDto = new FileDto(testFile.getOriginalFilename(), testFile.getBytes());
 
         ArgumentCaptor<Candidate> candidateArgumentCaptor = ArgumentCaptor.forClass(Candidate.class);
